@@ -1,0 +1,553 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f5ef">
+  <meta name="description" content="S Ritika is a Design Engineer Aspirant specializing in electrical and electronics engineering, electric vehicles, battery management systems, and power electronics.">
+  <title>S Ritika | Design Engineer Aspirant</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #f5f5ef;
+      --surface: #fffefa;
+      --ink: #192421;
+      --muted: #68736d;
+      --line: #d9dfd7;
+      --green: #a9d62e;
+      --green-deep: #314d18;
+      --orange: #ec754b;
+      --blue: #a9dfe0;
+      --header: rgba(245, 245, 239, .9);
+      --shadow: 0 18px 50px rgba(25, 36, 33, .09);
+    }
+    :root[data-theme="dark"] {
+      color-scheme: dark;
+      --paper: #171d1b;
+      --surface: #202825;
+      --ink: #edf1e9;
+      --muted: #a6b0a8;
+      --line: #3b4540;
+      --green: #b7e74a;
+      --green-deep: #263719;
+      --orange: #f18a61;
+      --blue: #355455;
+      --header: rgba(23, 29, 27, .9);
+      --shadow: 0 18px 50px rgba(0, 0, 0, .2);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 96px; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font-family: 'DM Sans', sans-serif; transition: background .25s, color .25s; }
+    a { color: inherit; text-decoration: none; }
+    button, input, textarea { font: inherit; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    .wrap { width: min(1160px, calc(100% - 48px)); margin-inline: auto; }
+    .mono, .eyebrow, .section-index, .tag, .year, .project-number { font-family: 'DM Mono', monospace; }
+    .eyebrow { margin: 0 0 18px; color: var(--muted); font-size: 11px; letter-spacing: 0; text-transform: uppercase; }
+    .site-header { position: sticky; top: 0; z-index: 10; background: var(--header); backdrop-filter: blur(16px); border-bottom: 1px solid var(--line); }
+    .header-inner { min-height: 72px; display: flex; align-items: center; gap: 26px; }
+    .brand { flex: 0 0 auto; font: 700 17px 'Space Grotesk', sans-serif; letter-spacing: 0; }
+    .brand span { color: var(--orange); }
+    .main-nav { display: flex; align-items: center; justify-content: center; gap: clamp(12px, 2vw, 25px); margin-left: auto; }
+    .main-nav a { color: var(--muted); font-size: 12px; font-weight: 600; white-space: nowrap; transition: color .2s; }
+    .main-nav a:hover, .main-nav a:focus-visible { color: var(--ink); }
+    .header-actions { display: flex; align-items: center; gap: 10px; }
+    .icon-button { width: 38px; height: 38px; display: grid; place-items: center; border: 1px solid var(--line); border-radius: 50%; background: transparent; color: var(--ink); cursor: pointer; }
+    .icon-button svg { width: 17px; height: 17px; }
+    .menu-toggle { display: none; }
+    .button { min-height: 46px; padding: 0 19px; display: inline-flex; align-items: center; justify-content: center; gap: 9px; border: 1px solid var(--ink); background: var(--ink); color: var(--paper); font-weight: 700; font-size: 13px; cursor: pointer; transition: transform .18s, background .18s, color .18s; }
+    .button:hover { transform: translateY(-2px); }
+    .button svg { width: 15px; height: 15px; }
+    .button.secondary { background: transparent; color: var(--ink); }
+    .button.accent { border-color: var(--green); background: var(--green); color: #1b2614; }
+    .button.small { min-height: 38px; padding-inline: 14px; font-size: 12px; white-space: nowrap; }
+
+    .hero { padding: 62px 0 34px; overflow: hidden; }
+    .hero-grid { display: grid; grid-template-columns: 1.06fr .94fr; align-items: center; gap: 56px; }
+    .hero-copy { padding: 18px 0 26px; animation: enter .7s both; }
+    .hero-label { display: inline-flex; align-items: center; gap: 10px; margin-bottom: 22px; color: var(--green-deep); font: 500 11px 'DM Mono', monospace; text-transform: uppercase; }
+    [data-theme="dark"] .hero-label { color: var(--green); }
+    .hero-label::before { content: ''; width: 24px; height: 2px; background: var(--orange); }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 { max-width: 620px; margin-bottom: 18px; font: 600 clamp(54px, 7.5vw, 96px)/.96 'Space Grotesk', sans-serif; letter-spacing: 0; }
+    h1 .name-accent { color: var(--orange); }
+    .hero-subtitle { max-width: 540px; margin-bottom: 18px; font: 500 17px/1.55 'Space Grotesk', sans-serif; }
+    .hero-summary { max-width: 540px; margin-bottom: 27px; color: var(--muted); font-size: 14px; line-height: 1.8; }
+    .hero-buttons { display: flex; flex-wrap: wrap; gap: 11px; }
+    .hero-visual { position: relative; min-height: 485px; animation: enter .8s .12s both; }
+    .portrait-frame { position: absolute; inset: 0 28px 20px 16px; overflow: hidden; background: var(--blue); }
+    .portrait-frame::before { position: absolute; z-index: 1; inset: 13px; border: 1px solid rgba(255,255,255,.62); content: ''; pointer-events: none; }
+    .portrait-frame img { width: 100%; height: 100%; display: block; object-fit: cover; object-position: center 28%; }
+    .visual-note { position: absolute; z-index: 2; right: 0; bottom: 0; width: 188px; padding: 18px; background: var(--green); color: #1d2914; box-shadow: var(--shadow); }
+    .visual-note strong { display: block; margin-bottom: 6px; font: 600 23px 'Space Grotesk', sans-serif; }
+    .visual-note span { display: block; font: 10px/1.55 'DM Mono', monospace; text-transform: uppercase; }
+    .hero-stamp { position: absolute; top: 23px; left: -10px; z-index: 2; width: 74px; height: 74px; display: grid; place-items: center; border: 1px solid var(--ink); border-radius: 50%; background: var(--paper); color: var(--ink); transform: rotate(-12deg); font: 10px/1.35 'DM Mono', monospace; text-align: center; }
+    .contact-strip { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .contact-item { min-width: 0; padding: 18px 15px 18px 0; display: flex; align-items: flex-start; gap: 10px; }
+    .contact-item + .contact-item { padding-left: 18px; border-left: 1px solid var(--line); }
+    .contact-icon { width: 17px; height: 17px; flex: 0 0 auto; margin-top: 1px; color: var(--orange); }
+    .contact-item small { display: block; margin-bottom: 4px; color: var(--muted); font: 10px 'DM Mono', monospace; text-transform: uppercase; }
+    .contact-item a, .contact-item address { display: block; overflow-wrap: anywhere; color: var(--ink); font-size: 11px; font-style: normal; font-weight: 600; line-height: 1.5; }
+
+    .section { padding: 96px 0; }
+    .section-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; margin-bottom: 38px; }
+    .section-title { margin: 0; font: 600 clamp(36px, 5vw, 58px)/1.02 'Space Grotesk', sans-serif; letter-spacing: 0; }
+    .section-index { margin-bottom: 11px; color: var(--orange); font-size: 11px; }
+    .section-intro { max-width: 350px; margin: 0; color: var(--muted); font-size: 13px; line-height: 1.7; }
+    .section.tinted { background: var(--surface); border-block: 1px solid var(--line); }
+    .academic-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 58px; }
+    .subhead { margin-bottom: 17px; font: 600 18px 'Space Grotesk', sans-serif; }
+    .education-list { border-top: 1px solid var(--line); }
+    .education-item { padding: 19px 0; display: grid; grid-template-columns: 1fr auto; gap: 14px; border-bottom: 1px solid var(--line); }
+    .education-item h3 { margin-bottom: 5px; font: 600 15px 'Space Grotesk', sans-serif; }
+    .education-item p { margin: 0; color: var(--muted); font-size: 12px; line-height: 1.6; }
+    .education-score { align-self: center; padding: 8px 10px; background: var(--green); color: #1c2814; font: 500 11px 'DM Mono', monospace; white-space: nowrap; }
+    .highlight-list { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .highlight { min-height: 116px; padding: 16px; border: 1px solid var(--line); background: var(--paper); }
+    .highlight .year { display: block; margin-bottom: 13px; color: var(--orange); font-size: 10px; }
+    .highlight strong { display: block; font: 600 13px/1.45 'Space Grotesk', sans-serif; }
+    .responsibility { margin-top: 28px; padding-top: 22px; border-top: 1px solid var(--line); }
+    .responsibility ul { margin: 0; padding: 0; list-style: none; }
+    .responsibility li { position: relative; padding: 8px 0 8px 16px; color: var(--muted); font-size: 12px; line-height: 1.55; }
+    .responsibility li::before { position: absolute; left: 0; top: 15px; width: 5px; height: 5px; background: var(--orange); content: ''; }
+
+    .projects-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+    .project-card { position: relative; min-height: 260px; padding: 25px; display: flex; flex-direction: column; align-items: flex-start; border: 1px solid var(--line); background: var(--surface); transition: transform .2s, box-shadow .2s; }
+    .project-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+    .project-card:nth-child(2) { background: var(--blue); color: #173232; }
+    .project-card:nth-child(3) { background: var(--green); color: #202916; }
+    .project-card:nth-child(4) { background: var(--orange); color: #321c15; }
+    .project-top { width: 100%; display: flex; justify-content: space-between; align-items: center; margin-bottom: 33px; }
+    .project-number { font-size: 11px; opacity: .72; }
+    .project-mark { width: 34px; height: 34px; display: grid; place-items: center; border: 1px solid currentColor; border-radius: 50%; }
+    .project-mark svg { width: 16px; height: 16px; }
+    .project-card h3 { max-width: 460px; margin-bottom: 12px; font: 600 22px/1.2 'Space Grotesk', sans-serif; }
+    .project-card p { max-width: 450px; margin-bottom: 20px; font-size: 12px; line-height: 1.7; opacity: .76; }
+    .project-bottom { width: 100%; margin-top: auto; display: flex; justify-content: space-between; align-items: center; }
+    .tag { font-size: 10px; text-transform: uppercase; }
+    .text-button { padding: 0; border: 0; background: transparent; color: inherit; font-size: 12px; font-weight: 700; cursor: pointer; }
+    .text-button span { margin-left: 6px; font-size: 16px; }
+
+    .experience-layout { display: grid; grid-template-columns: .7fr 1.3fr; gap: 70px; }
+    .experience-note { max-width: 300px; color: var(--muted); font-size: 13px; line-height: 1.8; }
+    .timeline { border-top: 1px solid var(--line); }
+    .timeline-item { display: grid; grid-template-columns: 95px 1fr; gap: 21px; padding: 24px 0; border-bottom: 1px solid var(--line); }
+    .timeline-year { color: var(--orange); font: 11px 'DM Mono', monospace; }
+    .timeline-item h3 { margin-bottom: 4px; font: 600 19px 'Space Grotesk', sans-serif; }
+    .timeline-item .role { margin-bottom: 11px; color: var(--muted); font-size: 12px; }
+    .timeline-item ul { margin: 0; padding-left: 16px; color: var(--muted); font-size: 12px; line-height: 1.8; }
+
+    .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 13px; }
+    .skill-block { min-height: 220px; padding: 23px; border-top: 3px solid var(--orange); background: var(--paper); }
+    .skill-block:nth-child(2) { border-color: var(--green); }
+    .skill-block:nth-child(3) { border-color: #4d9e9c; }
+    .skill-block h3 { margin-bottom: 20px; font: 600 17px 'Space Grotesk', sans-serif; }
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .skill-tags span { padding: 7px 9px; border: 1px solid var(--line); color: var(--muted); font-size: 11px; }
+
+    .publication { position: relative; padding: 32px; display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 30px; border: 1px solid var(--line); background: var(--surface); }
+    .pub-label { margin-bottom: 13px; color: var(--orange); font: 11px 'DM Mono', monospace; text-transform: uppercase; }
+    .publication h3 { max-width: 690px; margin-bottom: 13px; font: 600 clamp(21px, 3vw, 30px)/1.2 'Space Grotesk', sans-serif; }
+    .publication p { margin: 0; color: var(--muted); font-size: 12px; }
+    .publication .button { white-space: nowrap; }
+
+    .contact-section { padding: 96px 0 70px; background: #dce9d5; color: #192421; }
+    [data-theme="dark"] .contact-section { background: #2b3a2a; color: #edf1e9; }
+    .contact-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 80px; }
+    .contact-section .section-index { color: #aa5439; }
+    [data-theme="dark"] .contact-section .section-index { color: #f18a61; }
+    .contact-copy h2 { margin-bottom: 18px; font: 600 clamp(42px, 6vw, 70px)/.98 'Space Grotesk', sans-serif; }
+    .contact-copy p { max-width: 390px; color: var(--muted); font-size: 14px; line-height: 1.8; }
+    .contact-direct { margin-top: 27px; display: grid; gap: 11px; font-size: 13px; font-weight: 600; }
+    .contact-direct a { width: fit-content; border-bottom: 1px solid currentColor; }
+    .contact-form { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; align-content: start; }
+    .field { display: grid; gap: 7px; }
+    .field.full { grid-column: 1/-1; }
+    .field label { font: 10px 'DM Mono', monospace; text-transform: uppercase; }
+    .field input, .field textarea { width: 100%; padding: 12px 13px; border: 1px solid rgba(25,36,33,.25); border-radius: 0; outline: none; background: rgba(255,255,255,.45); color: #192421; font-size: 13px; }
+    [data-theme="dark"] .field input, [data-theme="dark"] .field textarea { background: rgba(0,0,0,.16); color: #edf1e9; border-color: rgba(237,241,233,.25); }
+    .field input:focus, .field textarea:focus { border-color: #314d18; box-shadow: 0 0 0 2px rgba(169,214,46,.25); }
+    .field textarea { min-height: 130px; resize: vertical; }
+    .contact-form .button { justify-self: start; margin-top: 2px; }
+    .site-footer { padding: 23px 0; background: #192421; color: #edf1e9; }
+    .footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .footer-inner p { margin: 0; color: #a6b0a8; font-size: 11px; }
+    .footer-links { display: flex; gap: 19px; font-size: 11px; }
+    .footer-links a:hover { color: var(--green); }
+    dialog { width: min(590px, calc(100% - 32px)); padding: 0; border: 1px solid var(--line); background: var(--surface); color: var(--ink); box-shadow: var(--shadow); }
+    dialog::backdrop { background: rgba(12, 19, 17, .65); backdrop-filter: blur(4px); }
+    .dialog-content { padding: 30px; }
+    .dialog-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 20px; }
+    .dialog-content h2 { margin: 0 0 17px; font: 600 28px/1.15 'Space Grotesk', sans-serif; }
+    .dialog-content p { color: var(--muted); font-size: 14px; line-height: 1.8; }
+    .dialog-content .tag { color: var(--orange); }
+    .dialog-close { width: 34px; height: 34px; flex: 0 0 auto; border: 1px solid var(--line); background: transparent; color: var(--ink); cursor: pointer; font-size: 20px; }
+    .reveal { opacity: 0; transform: translateY(18px); transition: opacity .55s ease, transform .55s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .chat-launcher { position: fixed; z-index: 12; right: 24px; bottom: 24px; min-height: 52px; padding: 0 17px; display: flex; align-items: center; gap: 10px; border: 0; background: var(--ink); color: var(--paper); box-shadow: var(--shadow); font-size: 13px; font-weight: 700; cursor: pointer; }
+    .chat-launcher svg { width: 19px; height: 19px; }
+    .chat-panel { position: fixed; z-index: 12; right: 24px; bottom: 88px; width: min(360px, calc(100vw - 32px)); height: min(470px, calc(100dvh - 120px)); min-height: 360px; display: flex; flex-direction: column; overflow: hidden; border: 1px solid var(--line); background: var(--surface); color: var(--ink); box-shadow: var(--shadow); }
+    .chat-panel[hidden] { display: none; }
+    .chat-header { padding: 15px 16px; display: flex; align-items: center; justify-content: space-between; gap: 12px; border-bottom: 1px solid var(--line); background: var(--paper); }
+    .chat-identity { display: flex; align-items: center; gap: 10px; }
+    .chat-avatar { width: 35px; height: 35px; display: grid; place-items: center; background: var(--green); color: #1b2614; font: 700 12px 'Space Grotesk', sans-serif; }
+    .chat-name { margin: 0 0 3px; font: 600 14px 'Space Grotesk', sans-serif; }
+    .chat-status { margin: 0; color: var(--muted); font: 10px 'DM Mono', monospace; }
+    .chat-close { width: 32px; height: 32px; border: 1px solid var(--line); background: transparent; color: var(--ink); cursor: pointer; font-size: 19px; }
+    .chat-messages { flex: 1; padding: 15px; display: flex; flex-direction: column; align-items: flex-start; gap: 10px; overflow-y: auto; overscroll-behavior: contain; }
+    .chat-message { max-width: 88%; padding: 10px 12px; background: var(--paper); color: var(--ink); font-size: 12px; line-height: 1.6; overflow-wrap: anywhere; }
+    .chat-message.user { align-self: flex-end; background: var(--green); color: #1b2614; }
+    .chat-suggestions { padding: 0 15px 12px; display: flex; flex-wrap: wrap; gap: 6px; }
+    .chat-suggestions button { padding: 7px 9px; border: 1px solid var(--line); background: transparent; color: var(--muted); font-size: 10px; cursor: pointer; }
+    .chat-form { padding: 11px; display: flex; gap: 8px; border-top: 1px solid var(--line); }
+    .chat-form input { min-width: 0; flex: 1; padding: 10px 11px; border: 1px solid var(--line); border-radius: 0; outline: none; background: var(--paper); color: var(--ink); font-size: 12px; }
+    .chat-form input:focus { border-color: var(--orange); }
+    .chat-form button { width: 40px; flex: 0 0 auto; display: grid; place-items: center; border: 0; background: var(--green); color: #1b2614; cursor: pointer; }
+    .chat-form button svg { width: 17px; height: 17px; }
+    @keyframes enter { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; } .reveal { opacity: 1; transform: none; } }
+    @media (max-width: 1050px) {
+      .header-inner { gap: 16px; }
+      .main-nav { gap: 12px; }
+      .main-nav a { font-size: 11px; }
+      .header-actions .button { padding-inline: 12px; }
+    }
+    @media (max-width: 850px) {
+      .menu-toggle { display: grid; }
+      .header-inner { position: relative; }
+      .main-nav { position: absolute; top: calc(100% + 1px); left: -24px; right: -24px; display: none; padding: 15px 24px 20px; align-items: stretch; gap: 0; flex-direction: column; background: var(--paper); border-bottom: 1px solid var(--line); }
+      .main-nav.open { display: flex; }
+      .main-nav a { padding: 11px 0; border-bottom: 1px solid var(--line); font-size: 13px; }
+      .header-actions { margin-left: auto; }
+      .hero-grid { gap: 34px; }
+      .hero-visual { min-height: 410px; }
+      .academic-grid, .experience-layout { gap: 35px; }
+      .contact-grid { gap: 40px; }
+    }
+    @media (max-width: 640px) {
+      .wrap { width: min(100% - 36px, 520px); }
+      .header-inner { min-height: 64px; }
+      .brand { font-size: 16px; }
+      .header-actions { gap: 7px; }
+      .header-actions .button { min-height: 36px; padding-inline: 10px; font-size: 11px; }
+      .icon-button { width: 36px; height: 36px; }
+      .main-nav { left: -18px; right: -18px; padding-inline: 18px; }
+      .hero { padding: 35px 0 24px; }
+      .hero-grid { grid-template-columns: 1fr; gap: 12px; }
+      .hero-copy { padding: 9px 0 0; }
+      h1 { font-size: clamp(55px, 16vw, 78px); }
+      .hero-subtitle { font-size: 15px; }
+      .hero-summary { font-size: 13px; }
+      .hero-visual { min-height: 380px; margin: 8px 0 0 10px; }
+      .portrait-frame { inset: 0 22px 18px 10px; }
+      .visual-note { width: 155px; padding: 13px; }
+      .visual-note strong { font-size: 20px; }
+      .hero-stamp { width: 64px; height: 64px; left: -4px; }
+      .contact-strip { grid-template-columns: 1fr 1fr; }
+      .contact-item { padding: 14px 8px 14px 0; }
+      .contact-item + .contact-item { padding-left: 12px; }
+      .contact-item:nth-child(3) { padding-left: 0; border-left: 0; border-top: 1px solid var(--line); }
+      .contact-item:nth-child(4) { border-top: 1px solid var(--line); }
+      .contact-item a, .contact-item address { font-size: 10px; }
+      .section { padding: 70px 0; }
+      .section-head { display: block; margin-bottom: 27px; }
+      .section-intro { margin-top: 14px; }
+      .academic-grid, .experience-layout, .contact-grid { grid-template-columns: 1fr; gap: 35px; }
+      .education-item { grid-template-columns: 1fr; gap: 9px; }
+      .education-score { justify-self: start; }
+      .highlight-list { gap: 8px; }
+      .highlight { min-height: 104px; padding: 13px; }
+      .highlight strong { font-size: 12px; }
+      .projects-grid { grid-template-columns: 1fr; }
+      .project-card { min-height: 240px; padding: 21px; }
+      .project-card h3 { font-size: 20px; }
+      .experience-layout { gap: 10px; }
+      .timeline-item { grid-template-columns: 68px 1fr; gap: 12px; }
+      .timeline-item h3 { font-size: 17px; }
+      .skills-grid { grid-template-columns: 1fr; }
+      .skill-block { min-height: auto; padding: 20px; }
+      .publication { grid-template-columns: 1fr; padding: 22px; gap: 20px; }
+      .publication .button { justify-self: start; }
+      .contact-section { padding: 70px 0 55px; }
+      .contact-form { grid-template-columns: 1fr; }
+      .field.full { grid-column: auto; }
+      .footer-inner { align-items: flex-start; flex-direction: column; }
+      .footer-links { gap: 15px; }
+      .chat-launcher { right: 16px; bottom: 16px; min-height: 48px; }
+      .chat-panel { right: 16px; bottom: 74px; width: calc(100vw - 32px); height: min(470px, calc(100dvh - 100px)); }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="#top" aria-label="S Ritika home">S <span>RITIKA</span></a>
+      <nav class="main-nav" id="main-nav" aria-label="Main navigation">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#publications">Publications</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <button class="icon-button" id="theme-toggle" type="button" aria-label="Switch to dark mode" title="Toggle color theme">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.2 15.2A8.5 8.5 0 0 1 8.8 3.8 8.5 8.5 0 1 0 20.2 15.2Z"/></svg>
+        </button>
+        <a class="button small" href="#" id="resume-download">Download Resume <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M5 17v4h14v-4"/></svg></a>
+        <button class="icon-button menu-toggle" id="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="main-nav">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero" id="about">
+      <div class="wrap">
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <p class="hero-label">Electrical &amp; Electronics Engineering</p>
+            <h1>Hi, I'm<br><span class="name-accent">S RITIKA</span></h1>
+            <p class="hero-subtitle">Design Engineer Aspirant | Electrical &amp; Electronics Engineering | EV &amp; BMS Specialist</p>
+            <p class="hero-summary">Self-driven final-year EEE student with practical experience in electrical systems, automation, panel testing, and electric vehicles. Focused on battery management systems, vehicle-to-grid (V2G) tech, and power electronics design.</p>
+            <div class="hero-buttons">
+              <a class="button accent" href="#projects">View Projects <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
+              <a class="button secondary" href="#contact">Contact Me</a>
+            </div>
+          </div>
+          <div class="hero-visual" aria-label="Portrait of S Ritika">
+            <div class="hero-stamp">CURIOUS<br>BY DESIGN<br>EEE / 27</div>
+            <div class="portrait-frame"><img src="ritika%20pro.jpeg" alt="S Ritika, electrical and electronics engineering student" fetchpriority="high"></div>
+            <div class="visual-note"><strong>8.98 CGPA</strong><span>Electrical &amp; Electronics<br>Engineering · 5th sem</span></div>
+          </div>
+        </div>
+        <div class="contact-strip" aria-label="Quick contact details">
+          <div class="contact-item"><svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M7 3h10v18H7zM10 6h4m-3 12h2"/></svg><div><small>Phone</small><a href="tel:+919361633616">+91 9361633616</a></div></div>
+          <div class="contact-item"><svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="m4 7 8 6 8-6"/></svg><div><small>Email</small><a href="mailto:ritu.sureshkumaar2124@gmail.com">ritu.sureshkumaar2124@gmail.com</a></div></div>
+          <div class="contact-item"><svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg><div><small>Location</small><address>Coimbatore, Tamil Nadu, India</address></div></div>
+          <div class="contact-item"><svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6ZM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg><div><small>LinkedIn</small><a href="https://www.linkedin.com/in/ritika-suresh" target="_blank" rel="noreferrer">ritika-suresh</a></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section tinted" id="education">
+      <div class="wrap">
+        <div class="section-head reveal"><div><p class="section-index">01 / THE FOUNDATION</p><h2 class="section-title">Learning in motion.</h2></div><p class="section-intro">Strong fundamentals, consistent academic performance, and a habit of stepping up beyond the classroom.</p></div>
+        <div class="academic-grid">
+          <div class="reveal">
+            <h3 class="subhead">Education</h3>
+            <div class="education-list">
+              <article class="education-item"><div><h3>Dr. N. G. P. Institute of Technology</h3><p>B.E. Electrical and Electronics Engineering · 2023–2027</p></div><span class="education-score">8.98 CGPA</span></article>
+              <article class="education-item"><div><h3>Vidhya Niketan Public School</h3><p>Grade XII: 78% · Grade X: 94% · 2013–2023</p></div><span class="education-score">94% X</span></article>
+            </div>
+          </div>
+          <div class="reveal">
+            <h3 class="subhead">Recognition</h3>
+            <div class="highlight-list">
+              <div class="highlight"><span class="year">2025–26 / 2024–25</span><strong>3rd Rank Holder Award</strong></div>
+              <div class="highlight"><span class="year">2024</span><strong>Best Trainee Appreciation of Excellence Award</strong></div>
+              <div class="highlight"><span class="year">2026</span><strong>KANAM'26 Core Team Member Award</strong></div>
+              <div class="highlight"><span class="year">2025–26</span><strong>Yi-Yuva Club Chair Person, Learning Vertical</strong></div>
+            </div>
+            <div class="responsibility"><h3 class="subhead">Positions of responsibility</h3><ul><li>Yi-Yuva Club Chair Person in Learning Vertical, Dr. N. G. P. Institute of Technology (2025–2026)</li><li>Department Executive Member (2024–2026)</li><li>Student Representative (2023–2027)</li></ul></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="projects">
+      <div class="wrap">
+        <div class="section-head reveal"><div><p class="section-index">02 / SELECTED WORK</p><h2 class="section-title">Projects with purpose.</h2></div><p class="section-intro">Exploring better ways to store, move, monitor, and use energy. Select a project for more detail.</p></div>
+        <div class="projects-grid">
+          <article class="project-card reveal"><div class="project-top"><span class="project-number">01 — 2026</span><span class="project-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M13 2 4 14h7l-1 8 10-12h-7z"/></svg></span></div><h3>Smart IoT Enabled Bidirectional EV Charger with BMS Monitoring</h3><p>Vehicle-to-grid charging with live system visibility and battery-aware energy control.</p><div class="project-bottom"><span class="tag">V2G · IoT · BMS</span><button class="text-button" data-project="0">Explore project <span>↗</span></button></div></article>
+          <article class="project-card reveal"><div class="project-top"><span class="project-number">02 — 2025</span><span class="project-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M9 12h6m-3-3v6"/></svg></span></div><h3>Enhanced BMS and Energy Monitoring System in EV with Fingerprint Authentication</h3><p>Biometric access paired with real-time battery monitoring and cloud telemetry.</p><div class="project-bottom"><span class="tag">EV · Security · Telemetry</span><button class="text-button" data-project="1">Explore project <span>↗</span></button></div></article>
+          <article class="project-card reveal"><div class="project-top"><span class="project-number">03 — 2025</span><span class="project-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 7h5l3 5 3-5h5M4 17h5l3-5 3 5h5"/></svg></span></div><h3>High-Efficiency SIDO-SEPIC with Improved Cross-Regulation</h3><p>Multi-output conversion designed for stable power distribution in EV charging systems.</p><div class="project-bottom"><span class="tag">Power electronics · EV</span><button class="text-button" data-project="2">Explore project <span>↗</span></button></div></article>
+          <article class="project-card reveal"><div class="project-top"><span class="project-number">04 — 2024</span><span class="project-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M2 12h2m16 0h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></span></div><h3>Battery Management with Solar Integration in Electric Vehicles</h3><p>A solar-integrated BMS concept to improve renewable energy use and battery performance.</p><div class="project-bottom"><span class="tag">Solar · BMS · EV</span><button class="text-button" data-project="3">Explore project <span>↗</span></button></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section tinted" id="experience">
+      <div class="wrap experience-layout">
+        <div class="reveal"><p class="section-index">03 / INDUSTRY EXPOSURE</p><h2 class="section-title">Learning on the floor.</h2><p class="experience-note">Hands-on exposure to industrial testing, automation, and the coordination that keeps real systems running safely.</p></div>
+        <div class="timeline reveal">
+          <article class="timeline-item"><span class="timeline-year">2025 / INTERNSHIP</span><div><h3>Welltech Control Systems</h3><p class="role">Industrial Testing &amp; Quality Assurance Intern</p><ul><li>Inspected and tested fully assembled electrical control panels.</li><li>Performed wiring continuity, component functionality, and panel performance checks.</li><li>Gained hands-on experience in electrical safety standards and industrial testing procedures.</li></ul></div></article>
+          <article class="timeline-item"><span class="timeline-year">2024 / INTERNSHIP</span><div><h3>Craftsman Automation</h3><p class="role">Industrial Automation Intern</p><ul><li>Worked with Vertical Storage Systems (VSS) and automated material handling technologies.</li><li>Analyzed synchronized automated door operations with slot loading and unloading mechanisms.</li><li>Studied real-time industrial process coordination, control systems, and safety practices.</li></ul></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="skills">
+      <div class="wrap">
+        <div class="section-head reveal"><div><p class="section-index">04 / TOOLKIT</p><h2 class="section-title">What I bring.</h2></div><p class="section-intro">A growing engineering toolkit, backed by collaboration, communication, and a willingness to learn.</p></div>
+        <div class="skills-grid">
+          <article class="skill-block reveal"><h3>Engineering &amp; code</h3><div class="skill-tags"><span>C</span><span>Java</span><span>Python (Basics)</span><span>MATLAB Simulink</span><span>Eagle PCB</span><span>Microsoft Visio</span></div></article>
+          <article class="skill-block reveal"><h3>Core domains</h3><div class="skill-tags"><span>Electric Vehicles</span><span>Battery Management</span><span>Power Electronics</span><span>Panel Testing</span><span>IoT Integration</span></div></article>
+          <article class="skill-block reveal"><h3>People &amp; languages</h3><div class="skill-tags"><span>Project Management</span><span>Leadership</span><span>Teamwork</span><span>Public Relations</span><span>Time Management</span><span>Communication</span><span>English</span><span>Telugu</span><span>Tamil</span><span>Hindi</span><span>German</span></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section tinted" id="publications">
+      <div class="wrap">
+        <div class="section-head reveal"><div><p class="section-index">05 / RESEARCH</p><h2 class="section-title">Published work.</h2></div><p class="section-intro">A contribution to efficient power conversion for the next generation of EV charging.</p></div>
+        <article class="publication reveal"><div><p class="pub-label">IEEE Xplore · 2025</p><h3>High-Efficiency SIDO-SEPIC with Improved Cross-Regulation for EV Charging Systems</h3><p>DOI: 10.1109/ICPS67276.2025.11364788</p></div><a class="button secondary" href="https://doi.org/10.1109/ICPS67276.2025.11364788" target="_blank" rel="noreferrer">View publication <span aria-hidden="true">↗</span></a></article>
+      </div>
+    </section>
+
+    <section class="contact-section" id="contact">
+      <div class="wrap contact-grid">
+        <div class="contact-copy reveal"><p class="section-index">06 / GET IN TOUCH</p><h2>Let's make<br>good energy.</h2><p>Interested in EVs, power systems, or a chance to build something useful together? I’d love to hear from you.</p><div class="contact-direct"><a href="mailto:ritu.sureshkumaar2124@gmail.com">ritu.sureshkumaar2124@gmail.com</a><a href="tel:+919361633616">+91 9361633616</a></div></div>
+        <form class="contact-form reveal" id="contact-form">
+          <div class="field"><label for="name">Name</label><input id="name" name="name" autocomplete="name" required></div>
+          <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" required></div>
+          <div class="field full"><label for="subject">Subject</label><input id="subject" name="subject" required></div>
+          <div class="field full"><label for="message">Message</label><textarea id="message" name="message" required></textarea></div>
+          <button class="button" type="submit">Send message <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m22 2-7 20-4-9-9-4 20-7ZM22 2 11 13"/></svg></button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><div class="wrap footer-inner"><p>Copyright © 2026 S Ritika. All Rights Reserved.</p><div class="footer-links"><a href="https://www.linkedin.com/in/ritika-suresh" target="_blank" rel="noreferrer">LinkedIn ↗</a><a href="mailto:ritu.sureshkumaar2124@gmail.com">Email ↗</a><a href="#top">Back to top ↑</a></div></div></footer>
+
+  <button class="chat-launcher" id="chat-launcher" type="button" aria-expanded="false" aria-controls="chat-panel"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8z"/></svg>Ritika's Ai</button>
+  <section class="chat-panel" id="chat-panel" role="region" aria-label="Ritika's Ai chat" hidden>
+    <header class="chat-header"><div class="chat-identity"><span class="chat-avatar" aria-hidden="true">RA</span><div><h2 class="chat-name">Ritika's Ai</h2><p class="chat-status">Portfolio assistant</p></div></div><button class="chat-close" id="chat-close" type="button" aria-label="Close chat">×</button></header>
+    <div class="chat-messages" id="chat-messages" role="log" aria-live="polite"><div class="chat-message">Hi! I can help you explore Ritika's projects, experience, skills, and publication. What would you like to know?</div></div>
+    <div class="chat-suggestions" aria-label="Suggested questions"><button type="button" data-question="Tell me about the EV projects">EV projects</button><button type="button" data-question="What internships has Ritika done?">Experience</button><button type="button" data-question="How can I contact Ritika?">Contact</button></div>
+    <form class="chat-form" id="chat-form"><label class="visually-hidden" for="chat-input">Ask Ritika's Ai a question</label><input id="chat-input" name="question" placeholder="Ask about Ritika…" autocomplete="off" required><button type="submit" aria-label="Send message"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m22 2-7 20-4-9-9-4 20-7ZM22 2 11 13"/></svg></button></form>
+  </section>
+  <dialog id="project-dialog" aria-labelledby="dialog-title"><div class="dialog-content"><div class="dialog-top"><div><p class="tag" id="dialog-tag"></p><h2 id="dialog-title"></h2></div><button class="dialog-close" type="button" aria-label="Close project details">×</button></div><p id="dialog-description"></p></div></dialog>
+  <script>
+    const root = document.documentElement;
+    const themeButton = document.querySelector('#theme-toggle');
+    const savedTheme = localStorage.getItem('ritika-theme');
+    if (savedTheme === 'dark') root.dataset.theme = 'dark';
+    const updateThemeLabel = () => {
+      const dark = root.dataset.theme === 'dark';
+      themeButton.setAttribute('aria-label', dark ? 'Switch to light mode' : 'Switch to dark mode');
+      themeButton.innerHTML = dark
+        ? '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M2 12h2m16 0h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>'
+        : '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M20.2 15.2A8.5 8.5 0 0 1 8.8 3.8 8.5 8.5 0 1 0 20.2 15.2Z"/></svg>';
+    };
+    updateThemeLabel();
+    themeButton.addEventListener('click', () => {
+      root.dataset.theme = root.dataset.theme === 'dark' ? 'light' : 'dark';
+      localStorage.setItem('ritika-theme', root.dataset.theme);
+      updateThemeLabel();
+    });
+
+    const menuButton = document.querySelector('#menu-toggle');
+    const navigation = document.querySelector('#main-nav');
+    menuButton.addEventListener('click', () => {
+      const isOpen = navigation.classList.toggle('open');
+      menuButton.setAttribute('aria-expanded', String(isOpen));
+      menuButton.setAttribute('aria-label', isOpen ? 'Close navigation' : 'Open navigation');
+    });
+    navigation.addEventListener('click', event => {
+      if (event.target.closest('a')) {
+        navigation.classList.remove('open');
+        menuButton.setAttribute('aria-expanded', 'false');
+        menuButton.setAttribute('aria-label', 'Open navigation');
+      }
+    });
+
+    const projects = [
+      { year: '2026', tags: 'V2G · IoT · BMS', title: 'Smart IoT Enabled Bidirectional EV Charger with BMS Monitoring', description: 'Designed for Vehicle-to-Grid (V2G) applications. Enables real-time monitoring of voltage, current, and charging status via IoT integration for smart energy management and battery protection.' },
+      { year: '2025', tags: 'EV · Security · Telemetry', title: 'Enhanced BMS and Energy Monitoring System in EV Integrated with Fingerprint Authentication', description: 'Developed an advanced BMS featuring biometric fingerprint authentication for security, real-time voltage and temperature monitoring, and cloud/IoT telemetry.' },
+      { year: '2025', tags: 'Power electronics · EV', title: 'High-Efficiency SIDO-SEPIC with Improved Cross-Regulation for EV Charging Systems', description: 'Focused on stable multi-output power distribution, enhanced voltage regulation, efficient energy conversion, and converter loss reduction.' },
+      { year: '2024', tags: 'Solar · BMS · EV', title: 'Battery Management with Solar Integration in Electric Vehicles', description: 'Solar-integrated BMS concept optimizing renewable energy utilization, charging efficiency, and overall battery performance in electric vehicles.' }
+    ];
+    const projectDialog = document.querySelector('#project-dialog');
+    document.querySelectorAll('[data-project]').forEach(button => button.addEventListener('click', () => {
+      const project = projects[Number(button.dataset.project)];
+      document.querySelector('#dialog-tag').textContent = `${project.year} · ${project.tags}`;
+      document.querySelector('#dialog-title').textContent = project.title;
+      document.querySelector('#dialog-description').textContent = project.description;
+      projectDialog.showModal();
+    }));
+    document.querySelector('.dialog-close').addEventListener('click', () => projectDialog.close());
+    projectDialog.addEventListener('click', event => {
+      if (event.target === projectDialog) projectDialog.close();
+    });
+
+    const resumeText = `S RITIKA\nDesign Engineer Aspirant | Electrical & Electronics Engineering | EV & BMS\n\nCoimbatore, Tamil Nadu, India\n+91 9361633616 | ritu.sureshkumaar2124@gmail.com\nLinkedIn: https://www.linkedin.com/in/ritika-suresh\n\nPROFILE\nSelf-driven final-year EEE student with practical experience in electrical systems, automation, panel testing, and electric vehicles. Focused on battery management systems, V2G technology, and power electronics design.\n\nEDUCATION\nDr. N. G. P. Institute of Technology | B.E. Electrical and Electronics Engineering | 2023–2027 | CGPA: 8.98 (up to 5th semester)\nVidhya Niketan Public School | Grade XII: 78% | Grade X: 94% | 2013–2023\n\nPROJECTS\n2026 | Smart IoT Enabled Bidirectional EV Charger with BMS Monitoring\n2025 | Enhanced BMS and Energy Monitoring System in EV with Fingerprint Authentication\n2025 | High-Efficiency SIDO-SEPIC with Improved Cross-Regulation for EV Charging Systems\n2024 | Battery Management with Solar Integration in Electric Vehicles\n\nEXPERIENCE\nWelltech Control Systems (2025) | Industrial Testing & Quality Assurance Intern\nCraftsman Automation (2024) | Industrial Automation Intern\n\nPUBLICATION\nHigh-Efficiency SIDO-SEPIC with Improved Cross-Regulation for EV Charging Systems | IEEE Xplore\nDOI: 10.1109/ICPS67276.2025.11364788\n\nSKILLS\nC, Java, Python (Basics), MATLAB Simulink, Eagle PCB Design, Microsoft Visio, EV, BMS, Power Electronics, Electrical Panel Testing, IoT Integration\n\nLANGUAGES\nEnglish, Telugu, Tamil, Hindi, German\n`;
+    document.querySelector('#resume-download').addEventListener('click', event => {
+      event.preventDefault();
+      const resumeBlob = new Blob([resumeText], { type: 'text/plain;charset=utf-8' });
+      const downloadUrl = URL.createObjectURL(resumeBlob);
+      const downloadLink = document.createElement('a');
+      downloadLink.href = downloadUrl;
+      downloadLink.download = 'S-Ritika-Resume.txt';
+      downloadLink.click();
+      URL.revokeObjectURL(downloadUrl);
+    });
+
+    document.querySelector('#contact-form').addEventListener('submit', event => {
+      event.preventDefault();
+      const form = new FormData(event.currentTarget);
+      const subject = encodeURIComponent(form.get('subject'));
+      const body = encodeURIComponent(`Name: ${form.get('name')}\nEmail: ${form.get('email')}\n\n${form.get('message')}`);
+      window.location.href = `mailto:ritu.sureshkumaar2124@gmail.com?subject=${subject}&body=${body}`;
+    });
+
+    const chatPanel = document.querySelector('#chat-panel');
+    const chatLauncher = document.querySelector('#chat-launcher');
+    const chatMessages = document.querySelector('#chat-messages');
+    const chatInput = document.querySelector('#chat-input');
+    const setChatOpen = isOpen => {
+      chatPanel.hidden = !isOpen;
+      chatLauncher.setAttribute('aria-expanded', String(isOpen));
+      if (isOpen) chatInput.focus();
+    };
+    chatLauncher.addEventListener('click', () => setChatOpen(chatPanel.hidden));
+    document.querySelector('#chat-close').addEventListener('click', () => setChatOpen(false));
+    const getPortfolioAnswer = question => {
+      const normalized = question.toLowerCase();
+      if (/project|charger|sido|solar|fingerprint|bms|ev /.test(normalized)) return 'Ritika has worked on four EV-focused projects: a bidirectional IoT EV charger with BMS monitoring (2026), fingerprint-authenticated BMS monitoring (2025), a SIDO-SEPIC converter for EV charging (2025), and solar-integrated battery management (2024). See the Projects section for details.';
+      if (/intern|experience|welltech|craftsman|automation|industrial/.test(normalized)) return 'Ritika completed an Industrial Testing & Quality Assurance internship at Welltech Control Systems in 2025, and an Industrial Automation internship at Craftsman Automation in 2024.';
+      if (/skill|program|software|language|tool/.test(normalized)) return 'Her skills include C, Java, Python basics, MATLAB Simulink, Eagle PCB design, Visio, EVs, BMS, power electronics, panel testing, and IoT integration. She speaks English, Telugu, Tamil, Hindi, and German.';
+      if (/publish|paper|ieee|doi|research/.test(normalized)) return 'Ritika’s paper, “High-Efficiency SIDO-SEPIC with Improved Cross-Regulation for EV Charging Systems,” is published in IEEE Xplore. DOI: 10.1109/ICPS67276.2025.11364788.';
+      if (/educat|college|cgpa|study|school|rank|award|academic/.test(normalized)) return 'Ritika is pursuing a B.E. in Electrical and Electronics Engineering at Dr. N. G. P. Institute of Technology (2023–2027), with an 8.98 CGPA through semester 5. She is also a 3rd Rank Holder award recipient.';
+      if (/contact|email|phone|linkedin|reach|hire/.test(normalized)) return 'You can reach Ritika at ritu.sureshkumaar2124@gmail.com or +91 9361633616, or connect on LinkedIn at linkedin.com/in/ritika-suresh.';
+      if (/hello|hi|hey|who|about|ritika/.test(normalized)) return 'Ritika is a final-year Electrical and Electronics Engineering student and Design Engineer Aspirant focused on EVs, battery management systems, V2G, and power electronics.';
+      return 'I can help with Ritika’s EV projects, internships, engineering skills, education, publication, or contact details. Try asking about one of those topics.';
+    };
+    const addChatMessage = (text, sender) => {
+      const message = document.createElement('div');
+      message.className = `chat-message${sender === 'user' ? ' user' : ''}`;
+      message.textContent = text;
+      chatMessages.append(message);
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    };
+    const sendChatQuestion = question => {
+      const trimmedQuestion = question.trim();
+      if (!trimmedQuestion) return;
+      addChatMessage(trimmedQuestion, 'user');
+      addChatMessage(getPortfolioAnswer(trimmedQuestion), 'assistant');
+    };
+    document.querySelector('#chat-form').addEventListener('submit', event => {
+      event.preventDefault();
+      sendChatQuestion(chatInput.value);
+      chatInput.value = '';
+      chatInput.focus();
+    });
+    document.querySelectorAll('[data-question]').forEach(button => button.addEventListener('click', () => sendChatQuestion(button.dataset.question)));
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: .12 });
+    document.querySelectorAll('.reveal').forEach(element => observer.observe(element));
+  </script>
+</body>
+</html>
